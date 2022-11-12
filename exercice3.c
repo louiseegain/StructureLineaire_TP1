@@ -35,12 +35,11 @@ int main ()
 {
 	TListe liste;
 	liste.debut = NULL;
-
+    printf("Pour commencer, nous allons creer une liste d'entier\n");
+    creerListeEntier(&liste);
+    afficherListeEntier(liste);
+    
     affichageMenu(liste);
-	// On crée une liste d'entiers
-	// creerListeEntier(&liste);
-
-	
 
 	return 0;
 }
@@ -251,9 +250,7 @@ void affichageMenu(TListe liste)
     bool trouver;
     int continuer;
     int poursuivre;
-    printf("Pour commencer, nous allons creer une liste d'entier\n");
-    creerListeEntier(&liste);
-    afficherListeEntier(liste);
+
     do
     {
         do
@@ -266,14 +263,13 @@ void affichageMenu(TListe liste)
             printf("5 : Faire un ajout trie dans la liste\n");
             printf("6 : Quitter\n");
             scanf("%d", &choix);
-        } while (choix<1 && choix>6);
+        } while (choix<1 || choix>6);
 
         switch (choix)
         {
         case 1:
             printf("Vous avez choisi d'ajouter un entier en fin de liste \n");
             printf("Quel nombre voulez-vous ajouter ? \n");
-            // scanf("%d", &nombre);
             scanf("%d\n", saisir_entre(1,100));
             ajout_fin(&liste, nombre);
             printf("Voici la liste : \n");
@@ -334,7 +330,6 @@ void affichageMenu(TListe liste)
         case 5:
             printf("Vous avez choisi d'ajouter un entier en fin de liste \n");
             printf("Quel nombre voulez-vous ajouter ? \n");
-            // scanf("%d", &nombre);
             scanf("%d\n", saisir_entre(1,100));
             ajout_trie(&liste, nombre);
             printf("Voici la liste : \n");
